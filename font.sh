@@ -7,9 +7,10 @@ usage_exit() {
   exit 1
 }
 
-while getopts cCh OPT
+while getopts ncCh OPT
 do
   case $OPT in
+    n)  SKIP_NAME="TRUE" ;;
     c) SKIP_CMAP="TRUE" ;;
     C) SKIP_CFF="TRUE" ;;
     h)  usage_exit ;;
@@ -23,7 +24,6 @@ else
   echo "skip generate name.org.xml"
 fi
 
-
 if [ ! -e cmap.org.xml ]; then
   ttx -o cmap.org.xml -t cmap SourceHanSerif-Regular.otf
 else
@@ -34,6 +34,10 @@ if [ ! -e cff.org.xml ]; then
   ttx -o cff.org.xml -t "CFF " SourceHanSerif-Regular.otf
 else
   echo "skip generate cff.org.xml"
+fi
+
+if [ "$SKIP_NAME" != "TRUE" ]; then
+  ruby name.rb
 fi
 
 if [ "$SKIP_CMAP" != "TRUE" ]; then
