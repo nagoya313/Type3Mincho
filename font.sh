@@ -10,7 +10,7 @@ usage_exit() {
 while getopts ncCh OPT
 do
   case $OPT in
-    n)  SKIP_NAME="TRUE" ;;
+    n) SKIP_NAME="TRUE" ;;
     c) SKIP_CMAP="TRUE" ;;
     C) SKIP_CFF="TRUE" ;;
     h)  usage_exit ;;
@@ -36,17 +36,15 @@ else
   echo "skip generate cff.org.xml"
 fi
 
-if [ "$SKIP_NAME" != "TRUE" ]; then
-  ruby name.rb
-fi
-
 if [ "$SKIP_CMAP" != "TRUE" ]; then
   ruby cmap.rb
 fi
 
 if [ "$SKIP_CFF" != "TRUE" ]; then
+  ttx -o cff.diff.xml -t "CFF " ../font_work/Type3Mincho-Regular.otf
   ruby cff.rb
 fi
 
 ttx -o name.otf -m SourceHanSerif-Regular.otf name.new.xml
 ttx -o cmap.otf -m name.otf cmap.new.xml
+ttx -o Type3Mincho.otf -m cmap.otf cff.new.xml
