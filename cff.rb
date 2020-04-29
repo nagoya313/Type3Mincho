@@ -10,7 +10,7 @@ doc.xpath('//CFFFont').each do |element|
 end
 
 doc.xpath('//Notice').each do |element|
-  element['value'] = "Copyright (c) 2018, nagyoya313, with Reserved Font Name 'Type 3'. | Copyright © 2017 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name 'Source'."
+  element['value'] = "Copyright (c) 2018, nagoya313, with Reserved Font Name 'Type 3'. | Copyright © 2017 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name 'Source'."
   puts element
 end
 
