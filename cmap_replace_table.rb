@@ -345,6 +345,7 @@ module CmapReplaceTable
     { code: '0x7fc1', name: 'cid61797', kanji: '翁' },
     { code: '0x7fcc', name: 'cid61799', kanji: '翌' },
     { code: '0x7fd2', name: 'cid61800', kanji: '習' },
+    { code: '0x7fd4', name: 'cid61801', kanji: '翔' },
     { code: '0x7fe0', name: 'cid61802', kanji: '翠' },
     { code: '0x7fe1', name: 'cid61803', kanji: '翡' },
     { code: '0x7ffb', name: 'cid61807', kanji: '翻' },
